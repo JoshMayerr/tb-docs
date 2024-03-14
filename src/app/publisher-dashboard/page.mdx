@@ -1,0 +1,89 @@
+export const metadata = {
+  title: 'Publisher Dashboard',
+  description: 'Go over each page of the dashboard.',
+}
+
+# Dashboard
+
+Your dashboard is your control center in monitizing your content.
+
+## Adding your Property
+
+When you first log in, you will be taken to the property overview page. This is where you will be able to view all the properties under
+your organization and add new ones. Adding a new property is as simple as clicking on `Create Property` and adding your property's domain.
+Once you've added your property, we will automatically fetch your sitemap through your `robots.txt` to determine your site's layout.
+
+<Note>
+  Much of our functionality relies on a well formatted `robots.txt` file and a
+  sitemap that is kept up to date.
+</Note>
+
+## Setting up your Subdomain
+
+After adding your property, the next step is setting up your subdomain. You want to set up your `tollbit` subdomain so that users can easily access the content mirrored on your main website.
+This will not affect your main website's SEO, load times, etc. Navigate to your DNS provider and create a new A record for your domain.
+If your main website were `www.example.com`, the subdomain should appear as `tollbit.example.com`. Point this A record at the IP address `138.197.55.236`.
+Once you have done that, please email team@tollbit.com and we will add the finishing touches on our end to fully route your subdomain to our platform.
+
+## Rates
+
+This is the core of the Tollbit product, and where you can set prices on your content. At the moment there are a few ways to set rates. Please
+do not hesitate to email us at team@tollbit.com if you have any suggestions for other ways to price your content! Rates currently have the following
+heiarchy: `bot -> page -> keyword -> time -> directory`. This means that when determine the price of a page for a particular request,
+we first check if that request is from a bot that matches any of your bot rates. If so, we return that rate. If there are no bot matches,
+we then check if the requested page matches any of your page rates. We keep going down the chain, trying to find a match, and if we find no
+matches at the end, the price is assumed to be 0.
+
+### Bot Rates
+
+These rates allow you to set special rates for any specific bots that access your platform, and will override all other rates.
+You should set this type of rate if you have struck a licensing deal with a company that employs a particular user agent, and want to give
+them special rates to access your content (usually 0).
+
+### Page Rates
+
+These rates allow you to set a rate for a specific page on your website. If you have any page that you know gets high bot traffic (i.e. sports or election results),
+or if you have a very high quality piece of original reporting, you can set a special rate for that page. This will override all other rates except
+bot rates.
+
+### Keyword Rates
+
+These rates allow you to set a price for pages that may contain a particular keyword. If you know that there are some high profile sporting
+events coming up, you may want to set a higher price for pages that mention `football` or `basketball`. This rate is still in beta.
+
+### Time Rates
+
+This rate allows you to define how the price of a page should change over time. You set a starting price for just published or updated content, and
+can define what the price of the content should be after a set amount of time passes from the last modified time. This rate allows you to
+automatically price content without needing to constantly manage the dashboard.
+
+<Note>
+  Time Rates depend on your sitemap using the `lastmod` XML tags. This is how we
+  know when a page has been last modified.
+</Note>
+
+### Directory Rates
+
+These rates let you set a flat fee for all the content within a page directory of your site. For a quick way to instantly price your content,
+you can set a price for your top level directory, and this will automatically apply to all pages. You can drill down into further subdirectories
+and set pricing there, and it will override any price in a higher directory. For example, you can set a base price of $0.001 at the root
+level, and then set a price of $0.005 for the `/sports` directory. Everything under `/sports` will now be $0.005 while something under `/cooking`
+will still be $0.001.
+
+## Transactions
+
+This page provides an audit trail where you can see all the requests that have been made to your website through Tollbit. For each request,
+you are able to see the user agent that made the request, the page they hit, and the price they paid for that page.
+
+## Payment
+
+In order to receive payment for the access to your content, you must add your payment information to your account. We parter with
+[Stripe](https://stripe.com) to process payments. You will be able to add either your bank account or a debit card where we will deposit
+payments to. Payouts will occur in the first couple days of the month, and will be for all transactions that took place in the previous month.
+More specifically, this will be from `00:00:00.000 UTC` of the first day of the previous month, to `23:59:59.999 UTC` of the last day of the previous month.
+
+<Note>
+  Only admins in your organization will be able to view and modify payment
+  information. Read the [Organization](publisher-org) section to see how to
+  manage your org.
+</Note>

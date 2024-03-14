@@ -241,6 +241,14 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
+    title: 'Publisher',
+    links: [
+      { title: 'Introduction', href: '/publisher-introduction' },
+      { title: 'Dashboard Overview', href: '/publisher-dashboard' },
+      { title: 'Organization Management', href: '/publisher-org' },
+    ],
+  },
+  {
     title: 'Resources',
     links: [
       { title: 'Contacts', href: '/contacts' },
