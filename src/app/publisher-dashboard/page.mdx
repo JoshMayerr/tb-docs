@@ -72,6 +72,18 @@ will still be $0.001.
 
 ## Transactions
 
+This page provides an audit trail where you can see all the requests that have been made to your website through Tollbit. For each request,
+you are able to see the user agent that made the request, the page they hit, and the price they paid for that page.
+
 ## Payment
 
-## Testing
+In order to receive payment for the access to your content, you must add your payment information to your account. We parter with
+[Stripe](https://stripe.com) to process payments. You will be able to add either your bank account or a debit card where we will deposit
+payments to. Payouts will occur in the first couple days of the month, and will be for all transactions that took place in the previous month.
+More specifically, this will be from `00:00:00.000 UTC` of the first day of the previous month, to `23:59:59.999 UTC` of the last day of the previous month.
+
+<Note>
+  Only admins in your organization will be able to view and modify payment
+  information. Read the [Organization](publisher-org) section to see how to
+  manage your org.
+</Note>
