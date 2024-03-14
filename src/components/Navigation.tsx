@@ -231,14 +231,13 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
-    title: 'Guides',
+    title: 'Developer Overview',
     links: [
       { title: 'Introduction', href: '/' },
       { title: 'Quickstart', href: '/quickstart' },
       { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
+      { title: 'Dev Dashboard Overview', href: '/dev-overview' },
+      //   { title: 'FAQs', href: '/faqs' },
     ],
   },
   {
