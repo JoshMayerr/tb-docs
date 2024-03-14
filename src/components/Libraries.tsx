@@ -4,25 +4,9 @@ import { Button } from '@/components/Button'
 import { Heading } from '@/components/Heading'
 import logoGo from '@/images/logos/go.svg'
 import logoNode from '@/images/logos/node.svg'
-import logoPhp from '@/images/logos/php.svg'
 import logoPython from '@/images/logos/python.svg'
-import logoRuby from '@/images/logos/ruby.svg'
 
 const libraries = [
-  {
-    href: '#',
-    name: 'PHP',
-    description:
-      'A popular general-purpose scripting language that is especially suited to web development.',
-    logo: logoPhp,
-  },
-  {
-    href: '#',
-    name: 'Ruby',
-    description:
-      'A dynamic, open source programming language with a focus on simplicity and productivity.',
-    logo: logoRuby,
-  },
   {
     href: '#',
     name: 'Node.js',

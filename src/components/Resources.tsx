@@ -10,10 +10,8 @@ import {
 
 import { GridPattern } from '@/components/GridPattern'
 import { Heading } from '@/components/Heading'
-import { ChatBubbleIcon } from '@/components/icons/ChatBubbleIcon'
-import { EnvelopeIcon } from '@/components/icons/EnvelopeIcon'
-import { UserIcon } from '@/components/icons/UserIcon'
-import { UsersIcon } from '@/components/icons/UsersIcon'
+import { BookIcon } from '@/components/icons/BookIcon'
+import { ShapesIcon } from '@/components/icons/ShapesIcon'
 
 interface Resource {
   href: string
@@ -28,11 +26,10 @@ interface Resource {
 
 const resources: Array<Resource> = [
   {
-    href: '/contacts',
-    name: 'Contacts',
-    description:
-      'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
-    icon: UserIcon,
+    href: '/quickstart',
+    name: 'Getting Started',
+    description: 'Learn how to make your first data requests in a few minutes.',
+    icon: BookIcon,
     pattern: {
       y: 16,
       squares: [
@@ -42,42 +39,17 @@ const resources: Array<Resource> = [
     },
   },
   {
-    href: '/conversations',
-    name: 'Conversations',
+    href: '/',
+    name: 'Dashboard Overview',
     description:
-      'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
-    icon: ChatBubbleIcon,
+      'Learn how to interact with the Developer Dashboard or Dashboard API to configure your account.',
+    icon: ShapesIcon,
     pattern: {
       y: -6,
       squares: [
         [-1, 2],
         [1, 3],
       ],
-    },
-  },
-  {
-    href: '/messages',
-    name: 'Messages',
-    description:
-      'Learn about the message model and how to create, retrieve, update, delete, and list messages.',
-    icon: EnvelopeIcon,
-    pattern: {
-      y: 32,
-      squares: [
-        [0, 2],
-        [1, 4],
-      ],
-    },
-  },
-  {
-    href: '/groups',
-    name: 'Groups',
-    description:
-      'Learn about the group model and how to create, retrieve, update, delete, and list groups.',
-    icon: UsersIcon,
-    pattern: {
-      y: 22,
-      squares: [[0, 1]],
     },
   },
 ]

@@ -3,21 +3,15 @@ import { Resources } from '@/components/Resources'
 import { HeroPattern } from '@/components/HeroPattern'
 
 export const metadata = {
-  title: 'API Documentation',
-  description:
-    'Learn everything there is to know about the Protocol API and integrate Protocol into your product.',
+  title: 'Introduction',
+  description: 'A high level overview of Tollbit and what it is.',
 }
 
-export const sections = [
-  { title: 'Guides', id: 'guides' },
-  { title: 'Resources', id: 'resources' },
-]
+export const sections = [{ title: 'Resources', id: 'resources' }]
 
-<HeroPattern />
+# Introduction
 
-# API Documentation
-
-Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users. {{ className: 'lead' }}
+Leverage our SDKs and documentation to build an AI agent facing internet. Get liscensed real-time data from first party data sources in a few lines of code.
 
 <div className="not-prose mb-16 mt-6 flex gap-3">
   <Button href="/quickstart" arrow="right">
@@ -28,16 +22,31 @@ Use the Protocol API to access contacts, conversations, group messages, and more
   </Button>
 </div>
 
+## Why Tollbit? {{ anchor: false }}
+
+Websites and complex UI are extra fluff in the emerging world of AI agents.
+We envision an internet where our personal agents can freely
+roam the internet, answering questions and acting on our behalf. They
+don't care how buttons look, they want the underlying data presented on
+the page.
+
+Tollbit is aiming to power this application layer of AI. We provide
+scalable and liscensed access to realtime data from primary sources
+meant to perfectly integrate with your inference (or training) time data
+uses like RAG. Stop paying and wasting time scraping. Use Tollbit to go
+directly to the data instead.
+
+## How it works {{ anchor: false }}
+
+The _tollbit.example.com_ paradigm.
+
+When using Tollbit, you have the Internet's data at your fingertips to build amazing AI applications. The key paradigm shift, is that
+all participating content providers will create a tollbit.example.com subdomain. Instead of scraping the human facing site, you can directly
+request tollbit.\<anywebsite\>.com/\<content-path\>, similarly as you have before. Except now, the response of that request is perfectly
+formatted for RAG and liscensed for one time use because you went straight to the source, instead of through a shady scraping third party.
+
 ## Getting started {{ anchor: false }}
 
-To get started, create a new application in your [developer settings](#), then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory](#) to reach the Protocol community. {{ className: 'lead' }}
-
-<div className="not-prose">
-  <Button href="/sdks" variant="text" arrow="right">
-    <>Get your API key</>
-  </Button>
-</div>
-
-<Guides />
+To get started, follow our [quickstart](/quickstart)
 
 <Resources />

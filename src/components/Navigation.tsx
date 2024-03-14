@@ -239,7 +239,6 @@ export const navigation: Array<NavGroup> = [
       { title: 'Authentication', href: '/authentication' },
       { title: 'Pagination', href: '/pagination' },
       { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
     ],
   },
   {

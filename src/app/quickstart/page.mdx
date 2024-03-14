@@ -1,21 +1,33 @@
 export const metadata = {
   title: 'Quickstart',
   description:
-    'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.',
+    'This guide will get you all set up and ready to use the Tollbit API. We’ll cover how to get started an API client and how to make your first API request.',
 }
 
 # Quickstart
 
-This guide will get you all set up and ready to use the Protocol API. We'll cover how to get started using one of our API clients and how to make your first API request. We'll also look at where to go next to find all the information you need to take full advantage of our powerful REST API. {{ className: 'lead' }}
+This guide will get you all set up and ready to use the Tollbit API. We'll cover how to get your account ready and get started using one of
+our API clients and how to make your first API request.
 
 <Note>
-  Before you can make requests to the Protocol API, you will need to grab your
-  API key from your dashboard. You find it under [Settings &raquo; API](#).
+  Before getting started, please create a Developer Account through the
+  [Developer Dashboard](https://hack.tollbit.com)
 </Note>
+
+## Register your AgentID
+
+Once you've created an account on the [Developer Dashboard](https://hack.tollbit.com), head to the [Dashboard >> Home](https://hack.tollbit.com/home) page. There, you can
+register your unique AgentID. Think of this as your username as you make requests to content providers on Tollbit.
+
+## Copy your secret key
+
+Next, head to the [Dashboard >> Access](https://hack.tollbit.com/access) page and copy your secret key. DO NOT share this with anyone. Keep it safe!
 
 ## Choose your client
 
-Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example, you can see how to install each client.
+To the code! Before making your first API request, you need to pick which API client you will use.
+In addition to good ol' cURL HTTP requests, Tollbit offers clients for JavaScript, Python, and PHP.
+In the following example, you can see how to install each client.
 
 <CodeGroup>
 
@@ -34,9 +46,9 @@ npm install @example/protocol-api --save
 pip install protocol_api
 ```
 
-```bash {{ language: 'php' }}
-# Install the Protocol PHP SDK
-composer require protocol/sdk
+```bash {{ language: 'go' }}
+# Install the Protocol Python SDK
+go download tollbit
 ```
 
 </CodeGroup>
@@ -93,6 +105,5 @@ $client->conversations->list();
 
 Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
 
-- [Grab your API key from the Protocol dashboard](#)
-- [Check out the Conversations endpoint](/conversations)
-- [Learn about the different error messages in Protocol](/errors)
+- [Checkout the Tollbit Devleloper Dashboard](https://hack.tollbit.com)
+- [Learn about the different error messages in Tollbit](/errors)
