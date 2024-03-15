@@ -1,0 +1,125 @@
+export const metadata = {
+  title: 'Tokens',
+  description:
+    'On this page, we’ll dive into the different token generation endpoints you can use.',
+}
+
+# Tokens
+
+Tokens are one time access grants that are tied to specific pages and AgentIDs. The token system allows easily scalable access,
+with highly detailed access logs of the content, so you know exactly what content you're accessing and when.
+
+## The token model
+
+Detailed view of the fields in a token response.
+
+### Properties
+
+<Properties>
+  <Property name="url" type="string">
+    The specific page url for the intended content to acess.
+  </Property>
+  <Property name="userAgent" type="string">
+    Unique AgentID string for who is allowed to access the page.
+  </Property>
+  <Property name="token" type="string">
+    The actual token that can be used to make a content request.
+  </Property>
+</Properties>
+
+---
+
+## Generate Token {{ tag: 'POST', label: '/dev/v1/token' }}
+
+<Row>
+  <Col>
+
+    This endoint allows you to manually generate a valid token for a specific page and AgentID. Tokens are also automatically generated
+    using the SDKs.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="orgCuid" type="string">
+        Account identifier that can be found in the access page of the dashboard.
+      </Property>
+      <Property name="key" type="string">
+        Secret key which can be found in the access page of the dashboard.
+      </Property>
+      <Property name="url" type="string">
+        The specific page url for the intended content to acess.
+      </Property>
+      <Property name="userAgent" type="string">
+        Unique AgentID string for who is allowed to access the page. Make sure to use the AgentID that you will use
+        within your application.
+       </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/dev/v1/token">
+
+    ```js
+    import ApiClient from '@example/protocol-api'
+
+    const client = new ApiClient(token)
+
+    await client.messages.list()
+    ```
+
+    ```python
+    from protocol_api import ApiClient
+
+    client = ApiClient(token)
+
+    client.messages.list()
+    ```
+
+    ```php
+    $client = new \Protocol\ApiClient($token);
+
+    $client->messages->list();
+    ```
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.protocol.chat/v1/messages \
+      -H "Authorization: Bearer {token}" \
+      -d conversation_id=xgQQXg3hrtjh7AvZ \
+      -d limit=10
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "has_more": false,
+      "data": [
+        {
+          "id": "SIuAFUNKdSYHZF2w",
+          "conversation_id": "xgQQXg3hrtjh7AvZ",
+          "contact": {
+            "id": "WAz8eIbvDR60rouK",
+            "username": "KevinMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+          },
+          "message": "It’s a nice night for a neck injury.",
+          "reactions": [],
+          "attachments": [],
+          "read_at": 705103200,
+          "created_at": 692233200,
+          "updated_at": 692233200
+        },
+        {
+          "id": "hSIhXBhNe8X1d8Et",
+          // ..
+        }
+      ]
+    }
+    ```
+
+  </Col>
+</Row>

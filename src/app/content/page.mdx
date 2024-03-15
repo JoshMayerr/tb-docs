@@ -1,0 +1,112 @@
+export const metadata = {
+  title: 'Content',
+  description:
+    'On this page, we’ll dive into the different endpoints for content.',
+}
+
+# Content
+
+Content represents the actual payload and data that you are looking for as a developer. You get content by making a request to
+a specific webpage. Every webpage has its own [rate](/rates).
+
+### Response
+
+<Properties>
+  <Property name="content" type="string">
+    The formatted plaintext for you to use within your application.
+  </Property>
+</Properties>
+
+---
+
+## Get Content {{ tag: 'GET', label: '/dev/v1/content/<content_path>' }}
+
+<Row>
+  <Col>
+
+    This endoint allows you to manually request content of a certain webpage. The `<content_path>` is simply the full url
+    of the intended webpage.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="orgCuid" type="string">
+        Account identifier that can be found in the access page of the dashboard.
+      </Property>
+      <Property name="<content_path>" type="string">
+        The specific page url for the intended content to acess.
+      </Property>
+      <Property name="userAgent" type="string">
+        Unique AgentID string for who is allowed to access the page. Make sure to use the AgentID that you will use
+        within your application.
+       </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/dev/v1/rate/<content_path>">
+
+    ```js
+    import ApiClient from '@example/protocol-api'
+
+    const client = new ApiClient(token)
+
+    await client.messages.list()
+    ```
+
+    ```python
+    from protocol_api import ApiClient
+
+    client = ApiClient(token)
+
+    client.messages.list()
+    ```
+
+    ```php
+    $client = new \Protocol\ApiClient($token);
+
+    $client->messages->list();
+    ```
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.protocol.chat/v1/messages \
+      -H "Authorization: Bearer {token}" \
+      -d conversation_id=xgQQXg3hrtjh7AvZ \
+      -d limit=10
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "has_more": false,
+      "data": [
+        {
+          "id": "SIuAFUNKdSYHZF2w",
+          "conversation_id": "xgQQXg3hrtjh7AvZ",
+          "contact": {
+            "id": "WAz8eIbvDR60rouK",
+            "username": "KevinMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+          },
+          "message": "It’s a nice night for a neck injury.",
+          "reactions": [],
+          "attachments": [],
+          "read_at": 705103200,
+          "created_at": 692233200,
+          "updated_at": 692233200
+        },
+        {
+          "id": "hSIhXBhNe8X1d8Et",
+          // ..
+        }
+      ]
+    }
+    ```
+
+  </Col>
+</Row>

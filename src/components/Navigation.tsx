@@ -231,7 +231,7 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
-    title: 'Developer Overview',
+    title: 'Developers',
     links: [
       { title: 'Introduction', href: '/' },
       { title: 'Quickstart', href: '/quickstart' },
@@ -241,7 +241,7 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
-    title: 'Publisher',
+    title: 'Publishers',
     links: [
       { title: 'Introduction', href: '/publisher-introduction' },
       { title: 'Dashboard Overview', href: '/publisher-dashboard' },
@@ -249,13 +249,11 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
-    title: 'Resources',
+    title: 'API Reference',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'Tokens', href: '/tokens' },
+      { title: 'Rates', href: '/rates' },
+      { title: 'Content', href: '/content' },
     ],
   },
 ]
