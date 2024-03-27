@@ -91,7 +91,7 @@ export const Header = forwardRef<
           <ThemeToggle />
         </div>
         <div className="hidden min-[416px]:contents">
-          <Button href="https://hack.tollbit.com">Dashboard</Button>
+          <Button href="https://hack.tollb.it">Dashboard</Button>
         </div>
       </div>
     </motion.div>

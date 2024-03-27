@@ -22,7 +22,7 @@ const libraries = [
     logo: logoPython,
   },
   {
-    href: '#',
+    href: 'https://github.com/tollbit/tollbit-sdk-go',
     name: 'Go',
     description:
       'An open-source programming language supported by Google with built-in concurrency.',
@@ -47,7 +47,12 @@ export function Libraries() {
                 {library.description}
               </p>
               <p className="mt-4">
-                <Button href={library.href} variant="text" arrow="right">
+                <Button
+                  target="_blank"
+                  href={library.href}
+                  variant="text"
+                  arrow="right"
+                >
                   Read more
                 </Button>
               </p>
