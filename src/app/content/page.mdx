@@ -63,10 +63,18 @@ a specific webpage. Every webpage has its own [rate](/rates).
     client.messages.list()
     ```
 
-    ```php
-    $client = new \Protocol\ApiClient($token);
+    ```go
+    import (
+      "github.com/tollbit/tollbit-sdk-go"
+    )
 
-    $client->messages->list();
+    client, _ := tollbit.NewClient(<secret_key>, <organization_id>, <user_agent>)
+
+    response, _ := client.GetContent(tollbit.TokenParams{
+      Url:            "https://www.joshmayer.net/posts/bix",
+      MaxPriceMicros: 11000000,
+      Currency:       "USD",
+    })
     ```
 
     ```bash {{ title: 'cURL' }}
@@ -79,33 +87,32 @@ a specific webpage. Every webpage has its own [rate](/rates).
     </CodeGroup>
 
     ```json {{ title: 'Response' }}
-    {
-      "has_more": false,
-      "data": [
+    [
         {
-          "id": "SIuAFUNKdSYHZF2w",
-          "conversation_id": "xgQQXg3hrtjh7AvZ",
-          "contact": {
-            "id": "WAz8eIbvDR60rouK",
-            "username": "KevinMcCallister",
-            "phone_number": "1-800-759-3000",
-            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
-            "last_active_at": 705103200,
-            "created_at": 692233200
-          },
-          "message": "It’s a nice night for a neck injury.",
-          "reactions": [],
-          "attachments": [],
-          "read_at": 705103200,
-          "created_at": 692233200,
-          "updated_at": 692233200
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et",
-          // ..
+            "content": "BixBreak the Internet Experience.2023-12-10Up
+             until now, the internet has successfully 
+            differentiated humans and bots (at least enough to rely on).
+             But in the age of AI this will not work. 
+            Captchas are easily bypassed, and eventuallyany user
+             interaction on the internet will probably be 
+            navigable by an AI agent. Given this future, why 
+            continue to distinguish the two? What were to happen 
+            if you opened up theflood gates to bot mania? Imo, 
+            it might actually work to build a newer, more efficient 
+            layer of the internet where you dont have to actually 
+            navigate page to page. Instead alla human needs to 
+            do is ask for exactly what they want.When you think 
+            about what you do daily on the internet today you probalu 
+            think about scrolling on TikTok, X, or checking your
+             email.Obviously, there are many concerns with such 
+            a drastic change to the internet.",
+            "rate": {
+                "priceMicros": 500000,
+                "currency": "USD",
+                "error": ""
+            }
         }
-      ]
-    }
+    ]
     ```
 
   </Col>

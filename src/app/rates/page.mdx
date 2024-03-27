@@ -70,10 +70,14 @@ Detailed view of the fields in a rate response.
     client.messages.list()
     ```
 
-    ```php
-    $client = new \Protocol\ApiClient($token);
+    ```go
+    import (
+      "github.com/tollbit/tollbit-sdk-go"
+    )
 
-    $client->messages->list();
+    client, _ := tollbit.NewClient(<secret_key>, <organization_id>, <user_agent>)
+
+    response, _ := client.GetRate("https://www.joshmayer.net/posts/bix")
     ```
 
     ```bash {{ title: 'cURL' }}
@@ -86,33 +90,13 @@ Detailed view of the fields in a rate response.
     </CodeGroup>
 
     ```json {{ title: 'Response' }}
-    {
-      "has_more": false,
-      "data": [
+    [
         {
-          "id": "SIuAFUNKdSYHZF2w",
-          "conversation_id": "xgQQXg3hrtjh7AvZ",
-          "contact": {
-            "id": "WAz8eIbvDR60rouK",
-            "username": "KevinMcCallister",
-            "phone_number": "1-800-759-3000",
-            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
-            "last_active_at": 705103200,
-            "created_at": 692233200
-          },
-          "message": "It’s a nice night for a neck injury.",
-          "reactions": [],
-          "attachments": [],
-          "read_at": 705103200,
-          "created_at": 692233200,
-          "updated_at": 692233200
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et",
-          // ..
+            "priceMicros": 500000,
+            "currency": "USD",
+            "error": ""
         }
-      ]
-    }
+    ]
     ```
 
   </Col>
