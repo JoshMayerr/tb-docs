@@ -11,22 +11,22 @@ our API clients and how to make your first API request.
 
 <Note>
   Before getting started, please create a Developer Account through the
-  [Developer Dashboard](https://hack.tollbit.com)
+  [Developer Dashboard](https://hack.tollb.it)
 </Note>
 
 ## Register your AgentID
 
-Once you've created an account on the [Developer Dashboard](https://hack.tollbit.com), head to the [Dashboard > Home](https://hack.tollbit.com/home) page. There, you can
+Once you've created an account on the [Developer Dashboard](https://hack.tollb.it), head to the [Dashboard > Home](https://hack.tollb.it/home) page. There, you can
 register your unique [AgentID](/dev-overview#agentid). Think of this as your username as you make requests to content providers on Tollbit.
 
 ## Copy your secret key
 
-Next, head to the [Dashboard > Access](https://hack.tollbit.com/access) page and copy your secret key. DO NOT share this with anyone. Keep it safe!
+Next, head to the [Dashboard > Access](https://hack.tollb.it/access) page and copy your secret key. DO NOT share this with anyone. Keep it safe!
 
 ## Choose your client
 
 To the code! Before making your first API request, you need to pick which API client you will use.
-In addition to good ol' cURL HTTP requests, Tollbit offers clients for JavaScript, Python, and PHP.
+In addition to good ol' cURL HTTP requests, Tollbit offers clients for JavaScript, Python, and Go.
 In the following example, you can see how to install each client.
 
 <CodeGroup>
@@ -37,18 +37,18 @@ curl --version
 ```
 
 ```bash {{ language: 'js' }}
-# Install the Protocol JavaScript SDK
+# Install the Tollbit JavaScript SDK
 npm install @example/protocol-api --save
 ```
 
 ```bash {{ language: 'python' }}
-# Install the Protocol Python SDK
+# Install the Tollbit Python SDK
 pip install protocol_api
 ```
 
 ```bash {{ language: 'go' }}
-# Install the Protocol Python SDK
-go download tollbit
+# Install the Tollbit Go SDK
+go get github.com/tollbit/tollbit-sdk-go
 ```
 
 </CodeGroup>
@@ -61,12 +61,12 @@ go download tollbit
 
 ## Making your first API request
 
-After picking your preferred client, you are ready to make your first call to the Tollbit API. Below, you can see how to send a GET request to the Conversations endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.
+After picking your preferred client, you are ready to make your first call to the Tollbit API. Below, you can see how to send a GET request to fetch the content from a page of Josh's blog.
 
-<CodeGroup tag="GET" label="/v1/conversations">
+<CodeGroup tag="GET" label="https://tollbit.joshmayer.net/posts/bix">
 
 ```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
+curl -G https://tollbit.joshmayer.net/posts/bix/ \
   -H "Authorization: Bearer {token}" \
   -d limit=10
 ```
@@ -87,17 +87,25 @@ client = ApiClient(token)
 client.conversations.list()
 ```
 
-```php
-$client = new \Protocol\ApiClient($token);
+```go
+import (
+  "github.com/tollbit/tollbit-sdk-go"
+)
 
-$client->conversations->list();
+client, _ := tollbit.NewClient(<secret_key>, <organization_id>, <user_agent>)
+
+response, _ := client.GetContent(tollbit.TokenParams{
+  Url:            "https://www.joshmayer.net/posts/bix",
+  MaxPriceMicros: 11000000,
+  Currency:       "USD",
+})
 ```
 
 </CodeGroup>
 
 <div className="not-prose">
-  <Button href="/conversations" variant="text" arrow="right">
-    <>Read the docs for the Conversations endpoint</>
+  <Button href="/content" variant="text" arrow="right">
+    <>Read the docs for the Get Content endpoint</>
   </Button>
 </div>
 
@@ -105,5 +113,5 @@ $client->conversations->list();
 
 Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
 
-- [Checkout the Tollbit Devleloper Dashboard](https://hack.tollbit.com)
+- [Checkout the Tollbit Devleloper Dashboard](https://hack.tollb.it)
 - [Go over the dashboard overview](/dev-overview)
