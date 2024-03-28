@@ -34,8 +34,8 @@ Detailed view of the fields in a token response.
 <Row>
   <Col>
 
-    This endoint allows you to manually generate a valid token for a specific page and AgentID. Tokens are also automatically generated
-    using the SDKs.
+    This endoint allows you to manually generate a valid token for a specific page and AgentID. Tokens are also locally generated
+    using the SDKs. Only use the token generation endpoint for testing purposes. For any production usecases, please generate tokens locally.
 
     ### Required attributes
 
@@ -95,10 +95,9 @@ Detailed view of the fields in a token response.
     ```
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/messages \
-      -H "Authorization: Bearer {token}" \
-      -d conversation_id=xgQQXg3hrtjh7AvZ \
-      -d limit=10
+    curl https://api.tollbit.com/dev/v1/token \
+      -H "Content-Type: application/json" \
+      -d '{"orgCuid": <organization_id>, "key": <secret_key>, "url": "https://www.joshmayer.net/posts/bix", "userAgent": <user_agent>, "maxPriceMicros": 11000000, "currency": "USD"}'
     ```
 
     </CodeGroup>

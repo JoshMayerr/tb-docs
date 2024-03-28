@@ -74,10 +74,10 @@ a specific webpage. Every webpage has its own [rate](rates).
     ```
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/messages \
-      -H "Authorization: Bearer {token}" \
-      -d conversation_id=xgQQXg3hrtjh7AvZ \
-      -d limit=10
+    curl -G https://tollbit.joshmayer.net/posts/bix \
+      -H "TollbitOrgCuid: <organization_id>" \
+      -H "TollbitToken: <token>" \
+      -H "User-Agent: <user_agent>"
     ```
 
     </CodeGroup>
