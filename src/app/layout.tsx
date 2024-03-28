@@ -9,13 +9,6 @@ import { type Section } from '@/components/SectionProvider'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Tollbit API Reference',
-    default: 'Tollbit API Reference',
-  },
-}
-
-export const metadata: Metadata = {
-  title: {
     template: '%s - Tollbit Documentation',
     default: 'Tollbit Documentation',
   },
