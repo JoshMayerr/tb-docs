@@ -48,19 +48,15 @@ a specific webpage. Every webpage has its own [rate](rates).
     <CodeGroup title="Request" tag="GET" label="/dev/v1/rate/<content_path>">
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import Tollbit from 'tollbit-sdk'
 
-    const client = new ApiClient(token)
+    const client = new Tollbit(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
-    await client.messages.list()
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.list()
+    const response = await client.getContent({
+        url: "https://joshmayer.net/posts/bix",
+        maxPriceMicros: 11000000,
+        currency: "USD",
+    })
     ```
 
     ```go
@@ -68,7 +64,7 @@ a specific webpage. Every webpage has its own [rate](rates).
       "github.com/tollbit/tollbit-sdk-go"
     )
 
-    client, _ := tollbit.NewClient(<secret_key>, <organization_id>, <user_agent>)
+    client, _ := tollbit.NewClient(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
     response, _ := client.GetContent(tollbit.TokenParams{
       Url:            "https://www.joshmayer.net/posts/bix",
@@ -87,32 +83,30 @@ a specific webpage. Every webpage has its own [rate](rates).
     </CodeGroup>
 
     ```json {{ title: 'Response' }}
-    [
-        {
-            "content": "BixBreak the Internet Experience.2023-12-10Up
-             until now, the internet has successfully
-            differentiated humans and bots (at least enough to rely on).
-             But in the age of AI this will not work.
-            Captchas are easily bypassed, and eventuallyany user
-             interaction on the internet will probably be
-            navigable by an AI agent. Given this future, why
-            continue to distinguish the two? What were to happen
-            if you opened up theflood gates to bot mania? Imo,
-            it might actually work to build a newer, more efficient
-            layer of the internet where you dont have to actually
-            navigate page to page. Instead alla human needs to
-            do is ask for exactly what they want.When you think
-            about what you do daily on the internet today you probalu
-            think about scrolling on TikTok, X, or checking your
-             email.Obviously, there are many concerns with such
-            a drastic change to the internet.",
-            "rate": {
-                "priceMicros": 500000,
-                "currency": "USD",
-                "error": ""
-            }
+    {
+        "content": "BixBreak the Internet Experience.2023-12-10Up
+            until now, the internet has successfully
+        differentiated humans and bots (at least enough to rely on).
+            But in the age of AI this will not work.
+        Captchas are easily bypassed, and eventuallyany user
+            interaction on the internet will probably be
+        navigable by an AI agent. Given this future, why
+        continue to distinguish the two? What were to happen
+        if you opened up theflood gates to bot mania? Imo,
+        it might actually work to build a newer, more efficient
+        layer of the internet where you dont have to actually
+        navigate page to page. Instead alla human needs to
+        do is ask for exactly what they want.When you think
+        about what you do daily on the internet today you probalu
+        think about scrolling on TikTok, X, or checking your
+            email.Obviously, there are many concerns with such
+        a drastic change to the internet.",
+        "rate": {
+            "priceMicros": 500000,
+            "currency": "USD",
+            "error": ""
         }
-    ]
+    }
     ```
 
   </Col>

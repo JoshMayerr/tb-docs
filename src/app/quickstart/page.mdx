@@ -38,12 +38,7 @@ curl --version
 
 ```bash {{ language: 'js' }}
 # Install the Tollbit JavaScript SDK
-npm install @example/protocol-api --save
-```
-
-```bash {{ language: 'python' }}
-# Install the Tollbit Python SDK
-pip install protocol_api
+npm install tollbit-sdk
 ```
 
 ```bash {{ language: 'go' }}
@@ -74,12 +69,12 @@ curl -G https://tollbit.joshmayer.net/posts/bix/ \
 ```js
 import Tollbit from 'tollbit-sdk'
 
-const client = new Tollbit(<secret_key>, <organization_id>, <user_agent>)
+const client = new Tollbit(SECRET_KEY, USER_AGENT, ORGANIZATION_ID)
 
 const response = await client.getContent({
-  url: "https://joshmayer.net/posts/bix",
+  url: 'https://joshmayer.net/posts/bix',
   maxPriceMicros: 11000000,
-  currency: "USD",
+  currency: 'USD',
 })
 ```
 

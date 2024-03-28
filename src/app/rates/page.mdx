@@ -55,19 +55,11 @@ Detailed view of the fields in a rate response.
     <CodeGroup title="Request" tag="GET" label="/dev/v1/rate/<content_path>">
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import Tollbit from 'tollbit-sdk'
 
-    const client = new ApiClient(token)
+    const client = new Tollbit(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
-    await client.messages.list()
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.list()
+    const response = await client.getRate("https://joshmayer.net/posts/bix")
     ```
 
     ```go
@@ -75,7 +67,7 @@ Detailed view of the fields in a rate response.
       "github.com/tollbit/tollbit-sdk-go"
     )
 
-    client, _ := tollbit.NewClient(<secret_key>, <organization_id>, <user_agent>)
+    client, _ := tollbit.NewClient(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
     response, _ := client.GetRate("https://www.joshmayer.net/posts/bix")
     ```
@@ -90,13 +82,11 @@ Detailed view of the fields in a rate response.
     </CodeGroup>
 
     ```json {{ title: 'Response' }}
-    [
-        {
-            "priceMicros": 500000,
-            "currency": "USD",
-            "error": ""
-        }
-    ]
+    {
+        "priceMicros": 500000,
+        "currency": "USD",
+        "error": ""
+    }
     ```
 
   </Col>

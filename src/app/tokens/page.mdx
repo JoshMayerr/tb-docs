@@ -68,25 +68,30 @@ Detailed view of the fields in a token response.
     <CodeGroup title="Request" tag="POST" label="/dev/v1/token">
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import Tollbit from 'tollbit-sdk'
 
-    const client = new ApiClient(token)
+    const client = new Tollbit(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
-    await client.messages.list()
+    const response = await client.generateToken({
+        url: "https://joshmayer.net/posts/bix",
+        maxPriceMicros: 11000000,
+        currency: "USD",
+    })
     ```
 
-    ```python
-    from protocol_api import ApiClient
+    ```go
+    import (
+      "github.com/tollbit/tollbit-sdk-go"
+    )
 
-    client = ApiClient(token)
+    client, _ := tollbit.NewClient(SECRET_KEY, ORGANIZATION_ID, USER_AGENT)
 
-    client.messages.list()
-    ```
+    response, _ := client.GenerateToken(tollbit.TokenParams{
+        Url: "https://joshmayer.net/posts/bix",
+        MaxPriceMicros: 11000000,
+        Currency: "USD",
+    })
 
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->list();
     ```
 
     ```bash {{ title: 'cURL' }}
@@ -99,33 +104,7 @@ Detailed view of the fields in a token response.
     </CodeGroup>
 
     ```json {{ title: 'Response' }}
-    {
-      "has_more": false,
-      "data": [
-        {
-          "id": "SIuAFUNKdSYHZF2w",
-          "conversation_id": "xgQQXg3hrtjh7AvZ",
-          "contact": {
-            "id": "WAz8eIbvDR60rouK",
-            "username": "KevinMcCallister",
-            "phone_number": "1-800-759-3000",
-            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
-            "last_active_at": 705103200,
-            "created_at": 692233200
-          },
-          "message": "It’s a nice night for a neck injury.",
-          "reactions": [],
-          "attachments": [],
-          "read_at": 705103200,
-          "created_at": 692233200,
-          "updated_at": 692233200
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et",
-          // ..
-        }
-      ]
-    }
+    "8d6e547bfabedaff7db4b55594eda7d6dd45d733be570d75b4ca078464a9cc0a82f424b85c11b22b0275746b0f6737a3db93f08922279d447a106e9e10361da6dd17ed226d62666a3da104914a749064ec61cf9309bcb57f9cea1cd354ab5bd355db2cb49553ccabf94abcaa2cbe3388ca555a9458f6d6b501ddd1952ed7226a9e926d4fa429ca32b36acfcb234615cf7a09a1cbafdb11f145e9d583f35dd38148e4286c0e3bae72740ac28cd2ea307d656a282e0c8683598e76ccdfe2b30a465b5571ea5739218d00138b6190e111c55ec3a02704c88d8d7f0a7aa3df60d27cba7e9d9ff755077324f974d3ef40d46dff2610ca2a5f87f1e2cbbe0416d8"
     ```
 
   </Col>
