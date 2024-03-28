@@ -15,8 +15,7 @@ export const metadata: Metadata = {
   description:
     'Learn how to onboard and implement Tollbit for your application.',
   openGraph: {
-    title:
-      'Tollbit Documentation and API reference - Onboarding and Implementation',
+    title: 'Tollbit Documentation and API reference',
     description:
       'Learn how to onboard and implement Tollbit for your application.',
     url: 'https://docs.tollbit.com',
