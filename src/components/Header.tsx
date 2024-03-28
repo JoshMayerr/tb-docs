@@ -79,7 +79,9 @@ export const Header = forwardRef<
       <div className="flex items-center gap-5">
         <nav className="hidden md:block">
           <ul role="list" className="flex items-center gap-8">
-            <TopLevelNavItem href="#">Support</TopLevelNavItem>
+            <TopLevelNavItem href="mailto:team@tollbit.com">
+              Support
+            </TopLevelNavItem>
             <TopLevelNavItem href="https://devs.tollbit.com">
               devs.tollbit.com
             </TopLevelNavItem>

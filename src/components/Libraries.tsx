@@ -8,19 +8,19 @@ import logoPython from '@/images/logos/python.svg'
 
 const libraries = [
   {
-    href: '#',
+    href: 'https://github.com/tollbit/tollbit-sdk-node',
     name: 'Node.js',
     description:
       'Node.js® is an open-source, cross-platform JavaScript runtime environment.',
     logo: logoNode,
   },
-  {
-    href: '#',
-    name: 'Python',
-    description:
-      'Python is a programming language that lets you work quickly and integrate systems more effectively.',
-    logo: logoPython,
-  },
+  //   {
+  //     href: '#',
+  //     name: 'Python',
+  //     description:
+  //       'Python is a programming language that lets you work quickly and integrate systems more effectively.',
+  //     logo: logoPython,
+  //   },
   {
     href: 'https://github.com/tollbit/tollbit-sdk-go',
     name: 'Go',
