@@ -1,0 +1,63 @@
+export const metadata = {
+  title: 'Publisher Logging',
+  description: 'Forward logging to Tollbit.',
+}
+
+# Logging
+
+We provide a way for you to forward logs to our platform so that we can provide analytics on bot traffic and more.
+
+## Fastly
+
+Follow these steps to set up an integration into our platform if you use Fastly.
+
+### Create a new Logging Configuration
+
+Go to your [Fastly Dashboard](https://manage.fastly.com/configure) and pick the correct domain. Click
+“Edit Configuration”, and clone your current configuration. This saves a new
+configuration version as a draft, and allows you to rollback if necessary.
+This should bring you to a new screen. On the sidebar, scroll down until you
+see Logging and click on that. Then, click “Create Endpoint”.
+
+![](fastly-sidebar.png)
+
+### Configure your logs to be sent to our logging endpoint
+
+![](fastly-http-config.png)
+
+Find the HTTP logging endpoint and click “Create endpoint”. You can set the name to anything descriptive (e.g. tollbit-prod).
+Keep the placement option as the default selection. Make sure your log format is exactly as follows, without extra trailing spaces or newlines:
+
+```
+{ "timestamp": "%{strftime(\{"%Y-%m-%dT%H:%M:%S%z"\}, time.start)}V",
+"client_ip": "%{req.http.Fastly-Client-IP}V", "geo_country": "%
+{client.geo.country_name}V", "geo_city": "%{client.geo.city}V",
+"geo_postal_code":"%{client.geo.postal_code}V", "geo_latitude":"%
+{client.geo.latitude}V", "geo_longitude":"%{client.geo.longitude}V", "host": "%
+{if(req.http.Fastly-Orig-Host, req.http.Fastly-Orig-Host, req.http.Host)}V",
+"url": "%{json.escape(req.url)}V", "request_method": "%{json.escape(req.method)}
+V", "request_protocol": "%{json.escape(req.proto)}V", "request_referer": "%
+{json.escape(req.http.referer)}V", "request_user_agent": "%
+{json.escape(req.http.User-Agent)}V", "request_latency":"%{time.elapsed.usec}V",
+"response_state": "%{json.escape(fastly_info.state)}V", "response_status": %
+{std.itoa(resp.status)}V, "response_reason": %{if(resp.response,
+"%22"+json.escape(resp.response)+"%22", "null")}V, "response_body_size": %
+{resp.body_bytes_written}V, "fastly_server": "%{json.escape(server.identity)}V",
+"fastly_is_edge": %{if(fastly.ff.visits_this_service == 0, "true", "false")}V }
+```
+
+Finally, set the URL to https://log.tollbit.com/log.
+
+![](fastly-log-config.png)
+
+### Ensure that your Requests are Authenticated
+
+Go into Advanced Options and set the “Custom header name” field to “TollbitKey”.
+You must set the customer header value to your secret key. Log into your [TollBit portal](https://app.tollbit.com)
+and go into the API key tab and copy your secret key. Paste it into the “Custom header value” field with no
+trailing spaces. Keep all the other settings as default, scroll to the bottom, and save.
+
+![](fastly-activate.png)
+
+Once you are ready to publish these changes, click the “Activate” button. Keep in mind that if you have
+other unpublished changes in Fastly, this may also publish those as well.

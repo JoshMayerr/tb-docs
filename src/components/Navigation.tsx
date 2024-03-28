@@ -245,6 +245,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Introduction', href: '/publisher-introduction' },
       { title: 'Dashboard Overview', href: '/publisher-dashboard' },
+      { title: 'Logging Analytics', href: '/publisher-logging' },
       { title: 'Organization Management', href: '/publisher-org' },
     ],
   },
