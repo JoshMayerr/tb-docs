@@ -72,19 +72,15 @@ curl -G https://tollbit.joshmayer.net/posts/bix/ \
 ```
 
 ```js
-import ApiClient from '@example/protocol-api'
+import Tollbit from 'tollbit-sdk'
 
-const client = new ApiClient(token)
+const client = new Tollbit(<secret_key>, <organization_id>, <user_agent>)
 
-await client.conversations.list()
-```
-
-```python
-from protocol_api import ApiClient
-
-client = ApiClient(token)
-
-client.conversations.list()
+const response = await client.getContent({
+  url: "https://joshmayer.net/posts/bix",
+  maxPriceMicros: 11000000,
+  currency: "USD",
+})
 ```
 
 ```go

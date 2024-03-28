@@ -1,8 +1,9 @@
+import Image from 'next/image'
+
 export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <div className="flex space-x-1 font-serif">
-      <h3 className="text-3xl">Tollbit</h3>{' '}
-      <p className="text-sm text-emerald-400">docs</p>
+    <div className="mt-4">
+      <Image src={'/tbfull.svg'} alt={''} height={100} width={100} />
     </div>
   )
 }
