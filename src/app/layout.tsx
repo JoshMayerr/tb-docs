@@ -14,6 +14,39 @@ export const metadata: Metadata = {
   },
 }
 
+export const metadata: Metadata = {
+  title: {
+    template: '%s - Tollbit Documentation',
+    default: 'Tollbit Documentation',
+  },
+  description:
+    'Learn how to onboard and implement Tollbit for your application.',
+  openGraph: {
+    title:
+      'Tollbit Documentation and API reference - Onboarding and Implementation',
+    description:
+      'Learn how to onboard and implement Tollbit for your application.',
+    url: 'https://docs.tollbit.com',
+    siteName: 'Tollbit Documentation',
+    images: [
+      {
+        url: 'https://docs.tollbit.com/ogimage.png',
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tollbit Documenation',
+    description:
+      'Learn how to onboard and implement Tollbit for your application.',
+    images: ['https://docs.tollbit.com/ogimage.png'],
+  },
+}
+
 export default async function RootLayout({
   children,
 }: {
